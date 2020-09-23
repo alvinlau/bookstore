@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  discount: 9.99
+  g: MyString
+  scaffold: MyString
+  publishing_house: MyString
+  name: MyString
+  discount: 9.99
+
+two:
+  name: MyString
+  discount: 9.99
+  g: MyString
+  scaffold: MyString
+  publishing_house: MyString
+  name: MyString
+  discount: 9.99

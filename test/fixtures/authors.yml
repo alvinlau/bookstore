@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  namebin/rails: MyString
+  g: MyString
+  scaffold: MyString
+  author: MyString
+  name: MyString
+
+two:
+  namebin/rails: MyString
+  g: MyString
+  scaffold: MyString
+  author: MyString
+  name: MyString

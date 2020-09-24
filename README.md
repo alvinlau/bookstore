@@ -7,6 +7,8 @@ Things that are changed or different from the tutorial sample code:
 
 * I switched to Postgres instead of the default Sqlite from Rails, just change the database name, username and password in `config/database.yml`
 
+* I ended up putting the Ember project as a git submodule (not intended), in the `bookstore` directory
+
 * I ended up using the latest version of Ember from following the tutorial
 
 * I changed the publishing house's `discount` column to have a precision of 5 digits, because it wouldn't accept whole integer values like in the seeds, maybe it's a rejection from Postgres.  I meant for `discount` precision of 5 to accept values like `40.00` for example, but after the change it took `40` as well

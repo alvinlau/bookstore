@@ -3,22 +3,41 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+Things that are changed or different from the tutorial sample code:
 
-* Ruby version
+* I switched to Postgres instead of the default Sqlite from Rails, just change the database name, username and password in `config/database.yml`
 
-* System dependencies
+* I ended up using the latest version of Ember from following the tutorial
 
-* Configuration
+* I changed the publishing house's `discount` column to have a precision of 5 digits, because it wouldn't accept whole integer values like in the seeds, maybe it's a rejection from Postgres.  I meant for `discount` precision of 5 to accept values like `40.00` for example, but after the change it took `40` as well
 
-* Database creation
+* The current Ember component structure now seem to expect both the `.hbs` template AND `.js` definition to be in the components folder, as opposed to being in the having the `.hbs` file in the `templates` folder;  In fact, the behavior wasn't working until I added the `.js` file in the `components` folder later in the tutorial
 
-* Database initialization
+* Many of the js extensions that the handlers use in the tutorial, are now in the form of 
 
-* How to run the test suite
+```
+export default class BooksController extends Controller {
+}
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+I'm not too familiar with the function-as-object difference in js, so I used the older way in the tutorial and it still works
 
-* Deployment instructions
+```
+export default Controller.extend({
+  queryParams: ["limit"],
+  limit: 5,
 
-* ...
+  ...
+});
+```
+
+This didn't work syntax wise
+
+```
+export default class BooksController extends Controller {
+  queryParams: ["limit"],
+  limit: 5,
+
+  ...
+}
+```

@@ -1,8 +1,8 @@
 # db/seeds.rb
 
-pub1 = PublishingHouse.create(name: "ABC Publisher", discount: 0.40)
-pub2 = PublishingHouse.create(name: "Acme Publishing House", discount: 0.50)
-pub3 = PublishingHouse.create(name: "Foobar Corporation", discount: 0.55)
+pub1 = PublishingHouse.create(name: "ABC Publisher", discount: 40)
+pub2 = PublishingHouse.create(name: "Acme Publishing House", discount: 50)
+pub3 = PublishingHouse.create(name: "Foobar Corporation", discount: 55)
 
 author1 = Author.create(name: "James Jackson")
 author2 = Author.create(name: "Roberta Rock")

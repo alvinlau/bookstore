@@ -17,5 +17,6 @@ namespace :authors do
     # events.map {|e| pp e}
 
     # Author.create(name: "Clark Kent")
+    Setting.where(name: 'github_update').first.update(value: 0.days.ago.iso8601)
   end
 end

@@ -26,4 +26,4 @@ bookd = Book.create(title: "Anathema", author: author5, publisher: author5, pric
 booke = Book.create(title: "Best Of", author: author2, publisher: pub3, price: 12.24)
 bookf = Book.create(title: "Anyway", author: author6, publisher: pub3, price: 19.99)
 
-github_update = Setting.create(name: 'github_update', type: 'iso8601', value: 0.days.ago.iso8601)
+github_update = Setting.create(name: 'github_update', value: 0.days.ago.iso8601)

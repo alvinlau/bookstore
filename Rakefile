@@ -31,7 +31,7 @@ namespace :authors do
       if authors_found.empty?
         print "create author #{issue.title} - #{issue.number} ... "
         author = Author.create(name: issue.title, bio: issue.body, github_issue_num: issue.number)
-        author.books.create(title: "Self Published Title", price: 9.99, author: author, publisher: author)
+        author.books.create(title: 'First Book From ' + issue.title, price: 9.99, author: author, publisher: author)
         puts 'done'
       end
 

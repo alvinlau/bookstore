@@ -26,10 +26,12 @@ namespace :authors do
     # filter out pull requests
     issues.select{|i| i.pull_request.nil?}.each do |issue|
       puts 'issue ' + issue.number.to_s
+      # create author if there's none with matching github issue number
       authors_found = Author.where(github_issue_num: issue.number)
       if authors_found.empty?
         print "create author #{issue.title} - #{issue.number} ... "
-        Author.create(name: issue.title, bio: issue.body, github_issue_num: issue.number)
+        author = Author.create(name: issue.title, bio: issue.body, github_issue_num: issue.number)
+        author.books.create(title: "Self Published Title", price: 9.99, author: author, publisher: author)
         puts 'done'
       end
 
@@ -42,8 +44,10 @@ namespace :authors do
     unless closed_events.empty?
       closed_github_issue_nums = closed_events.map{|e| e.issue.number}
       closed_events.each{|e| puts "delete author #{e.issue.title}"}
-      Author.where(github_issue_num: closed_github_issue_nums).destroy_all
-      puts 'done deleting authors'
+      authors = Author.where(github_issue_num: closed_github_issue_nums)
+      authors.each{|author| author.books.destroy_all}
+      authors.destroy_all
+      puts 'done deleting authors and their books'
     end
 
     new_timestamp = 0.days.ago.iso8601

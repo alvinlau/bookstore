@@ -91,6 +91,10 @@ Similar to the call to get issues, the call to get issue events also takes a `si
 
 - Making use the `since` and `state: closed` params, we could process delete authors without using issue events, but that is still risky in case no event is generated or if it is not marked with the closed time from Github, since we need it to happen after our previous update timestamp
 - Since issues that have been renamed also show up in list of updated issues, we could just use that instead of using the `renamed` event
+- Authentication: add config to specific authenticating as Github user used in the Github API calls, right now the unauthenticated calls is rate limited to 60 requests per hour.  Here is the doc that describes it https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#rate-limiting
+  ```
+  For unauthenticated requests, the rate limit allows for up to 60 requests per hour. Unauthenticated requests are associated with the originating IP address, and not the user making requests.
+  ```
 - Use webhooks! https://docs.github.com/en/free-pro-team@latest/developers/webhooks-and-events/about-webhooks.  It seems some of the events we are looking for, are generated if we use webhooks.  To use it we will need to make another POST endpoint that Github will call.  We also need to register our host address on Github.  We could put it up on Heroku or Digital Ocean and paste the public IP each time we run the app, in order to demo it.
 - Write tests but we would have to move the code to actual class/controllers in the app, in order to mock/instantiate them for testing.
 

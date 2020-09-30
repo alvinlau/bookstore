@@ -1,5 +1,3 @@
-# db/seeds.rb
-
 pub1 = PublishingHouse.create(name: "ABC Publisher", discount: 40)
 pub2 = PublishingHouse.create(name: "Acme Publishing House", discount: 50)
 pub3 = PublishingHouse.create(name: "Foobar Corporation", discount: 55)
@@ -27,3 +25,5 @@ bookc = Book.create(title: "Lilly Reborn", author: author4, publisher: pub3, pri
 bookd = Book.create(title: "Anathema", author: author5, publisher: author5, price: 9.41)
 booke = Book.create(title: "Best Of", author: author2, publisher: pub3, price: 12.24)
 bookf = Book.create(title: "Anyway", author: author6, publisher: pub3, price: 19.99)
+
+github_update = Setting.create(name: 'github_update', value: 0.days.ago.iso8601)
